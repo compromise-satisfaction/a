@@ -48,6 +48,12 @@ window.onload = function(){
         c.x = 0
         c.y = 0
         core.rootScene.addChild(c)
+
+        var e = new Sprite(1280,722)
+        e.image = core.assets['e.png']
+        e.x = 0
+        e.y = 0
+        core.rootScene.addChild(e)
         
         var d = new Sprite(1280,722)
         d.image = core.assets['d.png']
@@ -55,12 +61,6 @@ window.onload = function(){
         d.y = 0
         d.opacity = 0;
         core.rootScene.addChild(d)
-        
-        var e = new Sprite(1280,722)
-        e.image = core.assets['e.png']
-        e.x = 0
-        e.y = 0
-        core.rootScene.addChild(e)
         
         var z = new Sprite(173,129)
         z.image = core.assets['z.png']
@@ -166,6 +166,8 @@ window.onload = function(){
                             if(a.x>-5){
                             if(a.x<5){
                             time-=0.02
+                            spead=0
+                            time_d=0
                             a2.y = 5000
                             this.y=0
                             }
