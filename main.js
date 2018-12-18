@@ -2,7 +2,8 @@ enchant()
 
 window.onload = function(){
     var core = new Core(1280,722)
-    core.preload('a.png','a2.png','b.png','b2.png','c.png','d.png','e.png','z.png')
+    core.preload('a.png','a2.png','b.png','b2.png','c.png','d.png','e.png','f.png')
+    core.preload('z.png')
     core.fps = 50
     core.onload = function(){
         
@@ -62,6 +63,13 @@ window.onload = function(){
         d.opacity = 0;
         core.rootScene.addChild(d)
         
+        var f = new Sprite(1280,722)
+        f.image = core.assets['f.png']
+        f.x = 0
+        f.y = 0
+        f.opacity = 0;
+        core.rootScene.addChild(f)
+        
         var z = new Sprite(173,129)
         z.image = core.assets['z.png']
         z.x = 0
@@ -77,6 +85,16 @@ window.onload = function(){
                   label1.text = ('涙　= '+Math.floor(d.opacity*40));
                   });
         core.rootScene.addChild(label1)
+        
+        var label2 = new Label();
+        label2.x = 0;
+        label2.y = 40;
+        label2.color = 'red';
+        label2.font = '40px "Arial"';
+        label2.on('enterframe', function(){
+                  label2.text = ('石　= '+Math.floor(f.opacity*100));
+                  });
+        core.rootScene.addChild(label2)
         
         function idou(name){
             if (core.input.down){
@@ -170,6 +188,7 @@ window.onload = function(){
                             time_d=0
                             a2.y = 5000
                             this.y=0
+                            f.opacity=0
                             }
                             else{
                             this.y=5000
@@ -202,6 +221,17 @@ window.onload = function(){
         d.addEventListener('enterframe',function(){
                            spead = Initial_speed+gravity*time_d
                            this.y+=spead
+                           })
+        
+        f.addEventListener('enterframe',function(){
+                           if(z.x>430 && z.x<450 && z.y>500 && z.y<520){
+                            if(this.opacity*100<100){
+                                this.opacity+=0.01
+                            }
+                           }
+                           else if(this.opacity*100<100){
+                           this.opacity=0
+                           }
                            })
         
         core.rootScene.on('touchstart',function(e){
