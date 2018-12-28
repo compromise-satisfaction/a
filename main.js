@@ -6,7 +6,7 @@ window.onload = function(){
     core.preload('z.png')
     core.fps = 50
     core.onload = function(){
-        
+
         var spead=0;
         var Initial_speed=0;
         var gravity = 9.8;
@@ -18,32 +18,34 @@ window.onload = function(){
         var i = 1;
         var i2 = 1;
         var i3 = 1;
-        
+
         var a = new Sprite(1280,722)
         a.image = core.assets['a.png']
         a.x = 0
         a.y = 0
+        a.frame = 0
         core.rootScene.addChild(a)
-        
+
         var a2 = new Sprite(1280,722)
         a2.image = core.assets['a2.png']
         a2.x = 0
         a2.y = 0
+        a2.frame = 0
         core.rootScene.addChild(a2)
-        
+
         var b = new Sprite(1280,722)
         b.image = core.assets['b.png']
         b.x = 0
         b.y = 0
         b.frame = 0;
         core.rootScene.addChild(b)
-        
+
         var b2 = new Sprite(1280,722)
         b2.image = core.assets['b2.png']
         b2.x = 0
         b2.y = 5000
         core.rootScene.addChild(b2)
-        
+
         var c = new Sprite(1280,722)
         c.image = core.assets['c.png']
         c.x = 0
@@ -55,27 +57,27 @@ window.onload = function(){
         e.x = 0
         e.y = 0
         core.rootScene.addChild(e)
-        
+
         var d = new Sprite(1280,722)
         d.image = core.assets['d.png']
         d.x = 0
         d.y = 0
         d.opacity = 0;
         core.rootScene.addChild(d)
-        
+
         var f = new Sprite(1280,722)
         f.image = core.assets['f.png']
         f.x = 0
         f.y = 0
         f.opacity = 0;
         core.rootScene.addChild(f)
-        
+
         var z = new Sprite(173,129)
         z.image = core.assets['z.png']
         z.x = 0
         z.y = 5000
         core.rootScene.addChild(z)
-        
+
         var label1 = new Label();
         label1.x = 0;
         label1.y = 0;
@@ -85,7 +87,7 @@ window.onload = function(){
                   label1.text = ('涙　= '+Math.floor(d.opacity*40));
                   });
         core.rootScene.addChild(label1)
-        
+
         var label2 = new Label();
         label2.x = 0;
         label2.y = 40;
@@ -95,7 +97,7 @@ window.onload = function(){
                   label2.text = ('石　= '+Math.floor(f.opacity*100));
                   });
         core.rootScene.addChild(label2)
-        
+
         function idou(name){
             if (core.input.down){
                 name.y+=1
@@ -110,7 +112,7 @@ window.onload = function(){
                 name.x+=1
             }
         }
-        
+
          a.addEventListener('enterframe',function(){
                             idou(this)
                             idou(a2)
@@ -140,7 +142,7 @@ window.onload = function(){
                             a2.y=60
                             }
                             })
-        
+
         b.addEventListener('enterframe',function(){
                            if(time<5){
                            this.frame=0;
@@ -178,7 +180,7 @@ window.onload = function(){
                            d.opacity = 0.01;
                            }
                            })
-        
+
         b2.addEventListener('enterframe',function(){
                             if(a.y==-40){
                             if(a.x>-5){
@@ -206,7 +208,7 @@ window.onload = function(){
                             }
                             z. rotation = time_a2*100
                            })
-        
+
         c.addEventListener('enterframe',function(){
                            this.y+=time_c
                            time_c+=0.01*i
@@ -217,12 +219,12 @@ window.onload = function(){
                            i*=-1;
                            }
                            })
-        
+
         d.addEventListener('enterframe',function(){
                            spead = Initial_speed+gravity*time_d
                            this.y+=spead
                            })
-        
+
         f.addEventListener('enterframe',function(){
                            if(z.x>430 && z.x<450 && z.y>500 && z.y<520){
                             if(this.opacity*100<100){
@@ -233,16 +235,18 @@ window.onload = function(){
                            this.opacity=0
                            }
                            })
-        
+
         core.rootScene.on('touchstart',function(e){
                           a.x=e.x-545
                           a.y=e.y-412
                           a2.x=e.x-545
                           a2.y=e.y-412
+                          a.frame+=1
+                          a2.frame+=1
                           z.x=e.x-89
                           z.y=e.y-59
                           })
-        
+
     }
     core.start()
 }
