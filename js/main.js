@@ -2,8 +2,9 @@ enchant()
 
 window.onload = function(){
     var core = new Core(1280,722)
-    core.preload('a.png','a2.png','b.png','b2.png','c.png','d.png','e.png','f.png')
-    core.preload('z.png')
+    core.preload('image/a.png','image/a2.png','image/b.png','image/b2.png');
+    core.preload('image/c.png','image/d.png','image/e.png','image/f.png');
+    core.preload('image/z.png');
     core.fps = 50
     core.onload = function(){
 
@@ -20,60 +21,60 @@ window.onload = function(){
         var i3 = 1;
 
         var a = new Sprite(1280,722)
-        a.image = core.assets['a.png']
+        a.image = core.assets['image/a.png']
         a.x = 0
         a.y = 0
         a.frame = 0
         core.rootScene.addChild(a)
 
         var a2 = new Sprite(1280,722)
-        a2.image = core.assets['a2.png']
+        a2.image = core.assets['image/a2.png']
         a2.x = 0
         a2.y = 0
         a2.frame = 0
         core.rootScene.addChild(a2)
 
         var b = new Sprite(1280,722)
-        b.image = core.assets['b.png']
+        b.image = core.assets['image/b.png']
         b.x = 0
         b.y = 0
         b.frame = 0;
         core.rootScene.addChild(b)
 
         var b2 = new Sprite(1280,722)
-        b2.image = core.assets['b2.png']
+        b2.image = core.assets['image/b2.png']
         b2.x = 0
         b2.y = 5000
         core.rootScene.addChild(b2)
 
         var c = new Sprite(1280,722)
-        c.image = core.assets['c.png']
+        c.image = core.assets['image/c.png']
         c.x = 0
         c.y = 0
         core.rootScene.addChild(c)
 
         var e = new Sprite(1280,722)
-        e.image = core.assets['e.png']
+        e.image = core.assets['image/e.png']
         e.x = 0
         e.y = 0
         core.rootScene.addChild(e)
 
         var d = new Sprite(1280,722)
-        d.image = core.assets['d.png']
+        d.image = core.assets['image/d.png']
         d.x = 0
         d.y = 0
         d.opacity = 0;
         core.rootScene.addChild(d)
 
         var f = new Sprite(1280,722)
-        f.image = core.assets['f.png']
+        f.image = core.assets['image/f.png']
         f.x = 0
         f.y = 0
         f.opacity = 0;
         core.rootScene.addChild(f)
 
         var z = new Sprite(173,129)
-        z.image = core.assets['z.png']
+        z.image = core.assets['image/z.png']
         z.x = 0
         z.y = 5000
         core.rootScene.addChild(z)
